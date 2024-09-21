@@ -1,0 +1,88 @@
+/* Common Flip Card Styles */
+.flipCard {
+    background-color: transparent;
+    perspective: 1000px;
+    width: 250px;
+    height: 350px; /* Ensures all cards are of equal height */
+  }
+  
+  .flipCardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.9s;
+    transform-style: preserve-3d;
+  }
+  
+  .flipCard:hover .flipCardInner {
+    transform: rotateY(180deg);
+  }
+  
+  .flipCardFront, .flipCardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Front Side */
+  .flipCardFront {
+    justify-content: space-between; /* Ensures consistent spacing */
+    overflow: hidden; /* Ensures no overflow affects the height */
+  }
+  
+  .flipCardFront img {
+    max-width: 80%;
+    height: auto;
+  }
+  
+  .flipCardFront h3 {
+    margin: 10px 0 0 0;
+    font-size: 1.2rem;
+    height: 50px; /* Ensures title height is consistent */
+    overflow: hidden; /* Truncates overflow text */
+  }
+  
+  .flipCardFront p {
+    margin: 0;
+    font-size: 1rem;
+    height: 40px; /* Ensures description height is consistent */
+    overflow: hidden; /* Truncates overflow text */
+  }
+  
+  /* Back Side */
+  .flipCardBack {
+    justify-content: center; /* Centers content */
+    transform: rotateY(180deg);
+    padding: 10px; /* Keeps padding for the backside */
+  }
+  
+  /* Light Theme */
+  .light .flipCardFront {
+    background-color: #fff;
+    color: #222;
+  }
+  
+  .light .flipCardBack {
+    background-color: #f0f0f0;
+    color: #222;
+  }
+  
+  /* Dark Theme */
+  .dark .flipCardFront {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .dark .flipCardBack {
+    background-color: #333;
+    color: #fff;
+  }
+  
